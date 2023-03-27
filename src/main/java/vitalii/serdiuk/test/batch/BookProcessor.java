@@ -14,10 +14,16 @@ public class BookProcessor implements ItemProcessor<Book, Book> {
     public Book process(final Book book) throws Exception {
         final String title = book.getTitle().toUpperCase();
         final String author = book.getAuthor().toUpperCase();
+        final String genre = book.getGenre().toUpperCase();
+        final int height = book.getHeight();
+        final String publisher = book.getPublisher().toUpperCase();
 
         final Book transformedBook = Book.builder()
                 .title(title)
                 .author(author)
+                .genre(genre)
+                .height(height)
+                .publisher(publisher)
                 .build();
 
         log.info("Converting (" + book + ") into (" + transformedBook + ")");
